@@ -2,13 +2,12 @@ let input = document.getElementById("input");
 let btn = document.getElementById("btn");
 let taskList = document.getElementById("taskList");
 
-// Sayfa ilk açıldığında kaydedilmiş verileri yükle
 document.addEventListener("DOMContentLoaded", loadData);
 
 btn.addEventListener('click', addTask);
 
 function addTask() {
-    let taskText = input.value.trim(); // Boşlukları temizle
+    let taskText = input.value.trim();
     
     if (taskText === "") {
         alert("please enter something");
@@ -18,10 +17,9 @@ function addTask() {
     createTaskElement(taskText, false);
 
     input.value = "";
-    saveData(); // Yeni görev eklendiğinde kaydet
+    saveData();
 }
 
-// Görev elemanını arayüze ekleyen yardımcı fonksiyon
 function createTaskElement(taskText, isCompleted) {
     const li = document.createElement("li");
     if (isCompleted) {
@@ -50,14 +48,12 @@ function createTaskElement(taskText, isCompleted) {
     li.appendChild(btnContainer);
     taskList.appendChild(li);
 
-    // Delete Butonu Fonksiyonu
     deletbtn.addEventListener("click", function() {
         taskList.removeChild(li);
-        saveData(); // Silindiğinde veriyi güncelle
+        saveData();
         checkAllCompleted(); 
     });
 
-    // Complete Butonu Fonksiyonu
     completeBtn.addEventListener("click", function() {
         li.classList.toggle("completed");
         
@@ -67,12 +63,11 @@ function createTaskElement(taskText, isCompleted) {
             completeBtn.textContent = "Complete";
         }
 
-        saveData(); // Durum değiştiğinde veriyi güncelle
+        saveData();
         checkAllCompleted();
     });
 }
 
-// Tüm görevlerin tamamlanıp tamamlanmadığını kontrol eden fonksiyon
 function checkAllCompleted() {
     const allTasks = taskList.querySelectorAll("li");
     
@@ -93,12 +88,11 @@ function checkAllCompleted() {
                 const compBtn = task.querySelector(".complete-btn");
                 if(compBtn) compBtn.textContent = "Complete";
             });
-            saveData(); // Sıfırlama durumunu kaydet
+            saveData();
         }, 600);
     }
 }
 
-// Verileri LocalStorage'a Kaydetme Fonksiyonu
 function saveData() {
     const tasks = [];
     const allTasks = taskList.querySelectorAll("li");
@@ -113,7 +107,6 @@ function saveData() {
     localStorage.setItem("todoTasks", JSON.stringify(tasks));
 }
 
-// Sayfa Yenilendiğinde Verileri LocalStorage'dan Çekme Fonksiyonu
 function loadData() {
     const savedTasks = localStorage.getItem("todoTasks");
     if (savedTasks) {

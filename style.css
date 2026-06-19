@@ -102,16 +102,16 @@ h1 {
     transition: all 0.4s ease; /* Renk ve kayma geçişi yumuşak olsun */
 }
 
-/* --- YENİ EKLENEN COMPLETED/TAMAMLANDI STİLLERİ --- */
+
 #taskList li.completed {
-    background: #10b981; /* Yeşile döner */
+    background: #10b981;
     color: #ffffff;
     transform: translateX(10px); /* Kenara doğru hafifçe çekilir */
     opacity: 0.85;
 }
 
 #taskList li.completed .task-text {
-    text-decoration: line-through; /* Üstünü çizer */
+    text-decoration: line-through;
 }
 
 .btn-container {
@@ -122,7 +122,7 @@ h1 {
 .complete-btn {
     border: none;
     border-radius: 10px;
-    background-color: #5d3bf6; /* Mavi buton */
+    background-color: #5d3bf6;
     color: #ffffff;
     padding: 8px 12px;
     cursor: pointer;
@@ -135,7 +135,6 @@ h1 {
     background-color: #39e896dc;
 }
 
-/* Silme butonu hover hatası düzeltildi */
 .delet-btn {
     border: none;
     border-radius: 10px;

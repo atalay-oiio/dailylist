@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    color: #1f2937;
+}
+
+.app-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-card {
+    width: 100%;
+    max-width: 520px;
+    background-color: #ffffff;
+    border-radius: 18px;
+    padding: 18px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+}
+
+h1 {
+    text-align: center;
+    color: #111827;
+}
+
+.subtitle {
+    text-align: center;
+    color: #6b7280;
+    margin-bottom: 22px;
+    font-size: 14px;
+}
+
+.input-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#input {
+    flex: 1;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#input:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+#btn {
+    border: none;
+    border-radius: 12px;
+    padding: 12px 18px;
+    background: linear-gradient(135deg, #4f46e5, #7c3ead);
+    color: whitesmoke;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+#btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(70, 70, 229, 0.35);
+}
+
+#btn:active {
+    transform: translateY(0);
+}
+
+#taskList {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#taskList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(191, 157, 221);
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    padding: 12px 14px;
+    transition: all 0.4s ease; /* Renk ve kayma geçişi yumuşak olsun */
+}
+
+/* --- YENİ EKLENEN COMPLETED/TAMAMLANDI STİLLERİ --- */
+#taskList li.completed {
+    background: #10b981; /* Yeşile döner */
+    color: #ffffff;
+    transform: translateX(10px); /* Kenara doğru hafifçe çekilir */
+    opacity: 0.85;
+}
+
+#taskList li.completed .task-text {
+    text-decoration: line-through; /* Üstünü çizer */
+}
+
+.btn-container {
+    display: flex;
+    gap: 6px;
+}
+
+.complete-btn {
+    border: none;
+    border-radius: 10px;
+    background-color: #5d3bf6; /* Mavi buton */
+    color: #ffffff;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.complete-btn:hover {
+    background-color: #39e896dc;
+}
+
+/* Silme butonu hover hatası düzeltildi */
+.delet-btn {
+    border: none;
+    border-radius: 10px;
+    background-color: #ef4444;
+    color: #ffffff;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.delet-btn:hover {
+    background-color: #dc2626;
+}
+
+@media (max-width : 480px) {
+    .todo-card {
+        padding: 28px;
+    }
+
+    .input-row {
+        flex-direction: column;
+    }
+
+    #btn {
+        width: 100%;
+    }
+}

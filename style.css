@@ -183,11 +183,13 @@ h1 {
         gap: 12px;
     }
 
-    #input {
-        width: 100%;
-        font-size: 18px;
-        padding: 15px;
-    }
+ #input {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 15px;
+    font-size: 18px;
+ }
 
     #btn {
         width: 100%;
